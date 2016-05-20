@@ -12,7 +12,7 @@ class _31_Invoke {
         val message = "The number of invocations is incorrect"
         fun testInvokable(numberOfInvocations: Int, invokeSeveralTimes: (Invokable) -> Invokable) {
             val invokable = Invokable()
-            assertEquals(message, numberOfInvocations, invokeSeveralTimes(invokable).numberOfInvocations)
+            assertEquals(message, numberOfInvocations, invokeSeveralTimes(invokable).getNumberOfInvocations())
         }
 
         testInvokable(1) { it() }
@@ -20,4 +20,5 @@ class _31_Invoke {
         testInvokable(0) { it }
     }
 
+    fun Invokable.getNumberOfInvocations(): Int = numberOfInvocations
 }
